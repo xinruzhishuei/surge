@@ -1,5 +1,5 @@
-#!name=抖音去广告
-#!system=ios
+#!name= Remove douyin Ads
+#!desc=移除抖音广告
 
 [URL Rewrite] 
 ^https?:\/\/(.*)\.amemv\.com\/aweme\/v2\/(follow\/)?feed\/ https://$1.amemv.com/aweme/v1/$2feed/ header 
