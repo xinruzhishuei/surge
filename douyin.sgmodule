@@ -1,4 +1,5 @@
-#抖音去广告
+#!name=抖音去广告
+#!system=ios
 
 [URL Rewrite] 
 ^https?:\/\/(.*)\.amemv\.com\/aweme\/v2\/(follow\/)?feed\/ https://$1.amemv.com/aweme/v1/$2feed/ header 
