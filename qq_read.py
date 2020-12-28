@@ -2,7 +2,7 @@
 # _*_ coding:utf-8 _*_
 
 # @Time    : 2020/12/3 1:28
-# @Author  : TNanko
+# @Author  : 宝箱
 # @Site    : https://tnanko.github.io
 # @File    : qq_read.py
 # @Software: PyCharm
