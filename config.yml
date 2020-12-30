@@ -1,0 +1,67 @@
+name: TNanko's Scripts Config File
+version: v1.3.6
+skip_check_config_version: false # 默认不跳过配置文件的版本检测
+
+# 消息推送
+notify:
+  enable: true # true 开启消息推送； false 关闭消息推送 （默认所有脚本开启消息推送）
+  type:
+    # 建议只填写一两个或者全部填写后设置对应脚本任务中的 notify_mode 参数
+    bark:
+      # ios 在 app store 下载 bark app，bark 推送 url 为 https://api.day.app/xxxxxxxxxxx/这里改成你自己的推送内容，则 xxxxxxxxxxx 为你的 bark 机器码
+      BARK_MACHINE_CODE: 5yyuGNFyqnhx7848VsumYX
+    telegram_bot:
+      # 暂时自行百度google
+      TG_BOT_TOKEN:
+      TG_USER_ID:
+    dingding_bot:
+      # 钉钉机器人，参考教程：https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq 在"安全设置"中选择"加签"（必须勾选），其他不懂不要勾选
+      DD_BOT_ACCESS_TOKEN:
+      DD_BOT_SECRET:
+    server_chan:
+      # 未测试
+      # ServerChan，参考教程：http://sc.ftqq.com/3.version
+      SCKEY:
+
+# 脚本配置信息
+jobs:
+  qq_read:
+    # 使用前请阅读 https://github.com/TNanko/Scripts/blob/master/docs/qq_read.md
+    enable: true # true 启用脚本； false 不启用脚本（默认不启用脚本）
+    version: v1.3.5
+    skip_check_script_version: false # 默认不跳过版本检测
+    notify: true # true 启用消息推送； false 不启用消息推送（默认不发消息推送）
+    notify_mode:  # 如果全都配置了，可以根据自身需求进行消息推送方式的选择，不需要的可以注释掉或者删除。由于 bark 消息长度的限制，不推荐 bark
+      - bark
+      - telegram_bot
+      - dingding_bot
+      - server_chan
+    scripts_filename: 'qq_read.py'
+    schedule:
+      cron: '*/10 * * * *'
+    parameters:
+      UPLOAD_TIME: 5 # 每次上传阅读时长（单位分钟）
+      MAX_READ_TIME: 600 # 每日最大阅读时长（单位分钟）
+      ACCOUNTS:
+        - HEADERS: {"ywsession":"48qcrk71uxne57gpzmrwt7t9aib54hxo","Cookie":"ywguid=728229378;ywkey=yw2KUV9RhnUP;platform=ios;channel=mqqmina;mpVersion=0.40.0;qq_ver=8.4.2;os_ver=iOS 14.0;mpos_ver=1.17.0;platform=ios;openid=963A33DBBBE66AF2065E107AC3CE7A66","Connection":"keep-alive","Content-Type":"application/json","Accept":"*/*","Host":"mqqapi.reader.qq.com","User-Agent":"QQ/8.4.2.608 CFNetwork/1197 Darwin/20.0.0","Referer":"https://appservice.qq.com/1110657249/0.40.0/page-frame.html","Accept-Language":"zh-cn","Accept-Encoding":"gzip, deflate, br","mpversion":"0.40.0"}
+          BODY: {"common":{"appid":1450024394,"areaid":5,"qq_ver":"8.4.2","os_ver":"iOS 14.0","mp_ver":"0.40.0","mpos_ver":"1.17.0","brand":"iPhone","model":"iPhone 7Plus<iPhone9,2>","screenWidth":414,"screenHeight":736,"windowWidth":414,"windowHeight":687,"openid":"963A33DBBBE66AF2065E107AC3CE7A66","guid":728229378,"session":"48qcrk71uxne57gpzmrwt7t9aib54hxo","scene":3001,"source":-1,"hasRedDot":"false","missions":-1,"caseID":-1},"dataList":[{"click1":"bookDetail_bottomBar_read_C","click2":"bookLib2_bookList_bookClick_C","route":"pages/book-read/index","refer":"pages/book-detail/index","options":{"bid":"31822278","cid":"1"},"dis":1609304287989,"ext6":20,"eventID":"bookRead_show_I","type":"shown","ccid":1,"bid":"31822278","bookStatus":0,"bookPay":1,"chapterStatus":0,"ext1":{"font":18,"bg":0,"pageMode":1},"from":"bookLib2_bookList_bookClick_C_0_31822278"}]}
+          BOOK_URL: https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=3001&refer=pages/book-category/index&bid=31822278&readTime=5059&read_type=0&conttype=1&read_status=0&chapter_info=[{"1":{"readTime":5059,"pay_status":0}}]&sp=-1
+          WITHDRAW: true # 默认不启用提现功能，启用前必须保证账号已经实名认证（模式：满额提现，每天23点以后开始尝试提现，每次提现10元，不满10元不提现，不使用2元和1元提现次数）
+          HOSTING_MODE: false # 默认不启用托管提现，若启用则必须在 WITHDRAW 为 true 下才有效（模式：托管提现，建议放弃薅此羊毛时候打开，将使用剩余的2元和1元提现次数将剩余金币最大程度转化为rmb）
+  bilibili:
+    # 使用前请阅读 https://raw.githubusercontent.com/TNanko/Scripts/master/scripts/bilibil.py 前12行使用说明
+    enable: false # true 启用脚本； false 不启用脚本（默认不启用脚本）
+    version: v1.0.5
+    skip_check_script_version: false # 默认不跳过版本检测
+    notify: false # true 启用消息推送； false 不启用消息推送（默认不发消息推送）
+    notify_mode:  # 如果全都配置了，可以根据自身需求进行消息推送方式的选择，不需要的可以注释掉或者删除。推荐 bark
+      - bark
+      - telegram_bot
+      - dingding_bot
+      - server_chan
+    scripts_filename: 'bilibili.py'
+    schedule:
+      cron: '10 1 * * *'
+    parameters:
+      ACCOUNTS:
+        - COOKIE:
