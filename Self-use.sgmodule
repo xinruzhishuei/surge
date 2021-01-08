@@ -1,5 +1,5 @@
 #!name=Self-use
-#!desc=自用
+#!desc=自用合集
 
 [General]
 http-api = Tartarus@0.0.0.0:6166
