@@ -12,6 +12,10 @@ https://www\.zhihu\.com/api/v4/hot_recommendation _ reject
 https://www\.zhihu\.com/commercial_api/banners_v3/mobile_banner _ reject
 https://zhuanlan\.zhihu\.com/api/articles/\d+/recommendation _ reject
 
+# 百度防跳转
+^https?:\/\/.*\.baidu\.com header-replace User-Agent Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/16C50 Quark/604.1 T7/10.3 SearchCraft/2.6.3 (Baidu; P1 8.0.0)$2
+
+
 [Header Rewrite]
 # 知乎（部分替换为手机百度 Quark 的 User-Agent）
 # 可以看楼层回复 1-2 条
@@ -25,4 +29,4 @@ https://zhuanlan\.zhihu\.com/api/articles/\d+/recommendation _ reject
 
 
 [MITM]
-hostname =  %APPEND% www.zhihu.com, zhuanlan.zhihu.com
+hostname =  %APPEND% www.zhihu.com,zhuanlan.zhihu.com,*.baidu.com, 
