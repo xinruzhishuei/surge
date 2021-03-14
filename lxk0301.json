@@ -407,15 +407,6 @@
       }
     },
     {
-      "name": "京喜工厂助力+参团",
-      "type": "cron",
-      "time": "10 * * * *",
-      "job": {
-        "type": "runjs",
-        "target": "https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_factory.js"
-      }
-    },
-    {
       "name": "东东小窝",
       "type": "cron",
       "time": "16 22 * * *",
