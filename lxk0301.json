@@ -1,4 +1,6 @@
- "list": [
+{
+  "name": "lxk0301 定时任务订阅",
+  "list": [
     {
       "name": "京东签到",
       "type": "cron",
